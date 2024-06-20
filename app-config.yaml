@@ -29,7 +29,9 @@ backend:
   # The production database configuration is stored in app-config.production.yaml
   database:
     client: better-sqlite3
-    connection: ':memory:'
+    # sqlite is configured by default to store in-memory
+    connection: # ':memory:'
+      directory: '/Users/sloanetribble/random-practice/backstage/stribble-backstage-app/data/backstage.sqlite'
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
@@ -37,7 +39,7 @@ integrations:
     - host: github.com
       # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
       # about setting up the GitHub integration here: https://backstage.io/docs/integrations/github/locations#configuration
-      token: ${GITHUB_TOKEN}
+      token: ${GITHUB_PAT}
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -63,10 +65,18 @@ techdocs:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
-  # see https://backstage.io/docs/auth/ to learn about auth providers
-  providers:
-    # See https://backstage.io/docs/auth/guest/provider
-    guest: {}
+ # see https://backstage.io/docs/auth/ to learn about auth providers
+ environment: development
+ providers:
+   github:
+     development:
+       clientId: ${AUTH_GITHUB_CLIENT_ID}
+       clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+       signIn:
+          resolvers:
+            # Only one of these
+            - resolver: usernameMatchingUserEntityName
+
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -103,3 +113,4 @@ catalog:
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
     #   rules:
     #     - allow: [User, Group]
+
