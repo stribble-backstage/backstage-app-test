@@ -102,6 +102,15 @@ catalog:
             frequency: { minutes: 3 }
             # supports ISO duration, "human duration" as used in code
             timeout: { minutes: 3 }
+      githubOrg:
+          id: production
+          githubUrl: https://github.com
+          orgs: ['stribble-backstage']    
+          schedule:
+            initialDelay: { seconds: 10 }
+            frequency: { hours: 1 }
+            timeout: { minutes: 50 }
+
   import:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
