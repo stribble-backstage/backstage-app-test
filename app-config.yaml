@@ -31,7 +31,7 @@ backend:
     client: better-sqlite3
     # sqlite is configured by default to store in-memory
     connection: # ':memory:'
-      directory: '/Users/sloanetribble/random-practice/backstage/stribble-backstage-app/data/backstage.sqlite'
+      directory: '/Users/sloanetribble/random-practice/backstage/backstage-app-test/data/backstage.sqlite'
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 
@@ -39,7 +39,7 @@ integrations:
   github:
     - host: github.com
       apps:
-        - $include: github-app-backstage-stribble-credentials.yaml
+        - $include: github-app-backstage-stribble-new-credentials.yaml
 # integrations:
 #   github:
 #     - host: github.com
@@ -88,7 +88,20 @@ scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 catalog:
-      
+  providers:
+      github:
+        # the provider ID can be any camelCase string
+        providerId:
+          organization: 'stribble-backstage' # string
+          catalogPath: '/catalog-info.yaml' # string
+          filters:
+            branch: 'main' # string
+            repository: '.*' # Regex
+          schedule: # same options as in TaskScheduleDefinition
+            # supports cron, ISO duration, "human duration" as used in code
+            frequency: { minutes: 3 }
+            # supports ISO duration, "human duration" as used in code
+            timeout: { minutes: 3 }
   import:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
