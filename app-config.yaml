@@ -31,7 +31,7 @@ backend:
     client: better-sqlite3
     # sqlite is configured by default to store in-memory
     connection: # ':memory:'
-      directory: '/Users/sloanetribble/random-practice/backstage/backstage-app-test/data/backstage.sqlite'
+      directory: '/Users/sloanetribble/github/backstage/backstage-app-test/data/backstage.sqlite'
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 
