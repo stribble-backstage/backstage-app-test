@@ -99,7 +99,7 @@ catalog:
             repository: '.*' # Regex
           schedule: # same options as in TaskScheduleDefinition
             # supports cron, ISO duration, "human duration" as used in code
-            frequency: { minutes: 3 }
+            frequency: { minutes: 1 }
             # supports ISO duration, "human duration" as used in code
             timeout: { minutes: 3 }
   import:
@@ -118,6 +118,12 @@ catalog:
       rules:
         - allow: [Template]
 
+        # Local example template
+    - type: file
+      target: /Users/sloanetribble/github/backstage/backstage-app-test/template2/template.yaml
+      rules:
+        - allow: [Template]
+
     # Local example organizational data
     - type: file
       target: ../../examples/org.yaml
@@ -128,9 +134,8 @@ catalog:
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
-    # Uncomment these lines to add an example org
     - type: url
-      target: https://github.com/stribble-backstage/*/blob/main/catalog-info.yaml
+      target: https://github.com/stribble-backstage/*/blob/main/template.yaml
       rules:
-        - allow: [Component, API, User, Group]
+        - allow: [Template]
 
