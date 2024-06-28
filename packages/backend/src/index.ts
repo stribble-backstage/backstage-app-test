@@ -16,12 +16,13 @@ backend.add(import('@backstage/plugin-proxy-backend/alpha'));
 backend.add(import('@backstage/plugin-scaffolder-backend/alpha'));
 backend.add(import('@backstage/plugin-techdocs-backend/alpha'));
 
-backend.add(import('../../../plugins/scaffolder-backend-module-test/src/actions/example'));
 
-// not mentioned in tutorial
+// extras
 backend.add(import('@backstage/plugin-auth-backend-module-github-provider'));
 backend.add(import('@backstage/plugin-scaffolder-backend-module-github'));
 backend.add(import('@backstage/plugin-catalog-backend-module-github/alpha'));
+backend.add(import('./plugins/scaffolder-backend-module-test/src/actions/example'));
+backend.add(import('@backstage-community/plugin-linguist-backend'));
 
 // auth plugin
 backend.add(import('@backstage/plugin-auth-backend'));

@@ -54,6 +54,8 @@ import {
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 
+import { isLinguistAvailable, EntityLinguistCard } from '@backstage-community/plugin-linguist';
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -124,6 +126,13 @@ const entityWarningContent = (
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
     {entityWarningContent}
+    <EntitySwitch>
+         <EntitySwitch.Case if={isLinguistAvailable}>
+             <Grid item md={6}>
+                 <EntityLinguistCard />
+             </Grid>
+         </EntitySwitch.Case>
+     </EntitySwitch>
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
     </Grid>

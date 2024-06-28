@@ -148,3 +148,15 @@ catalog:
       rules:
         - allow: [Template]
 
+linguist:
+  schedule:
+    frequency:
+      minutes: 1
+    timeout:
+      minutes: 2
+    initialDelay:
+      seconds: 15
+  age:
+    days: 30
+  batchSize: 2
+  useSourceLocation: false
