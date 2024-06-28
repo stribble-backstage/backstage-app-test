@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Template
+metadata:
+  name: org-repo-template
+  title: Template from Org Repo
+  description: A template imported from a repo
+  owner: user:guest
+spec:
+  type: service
+  path: ./template.yaml
