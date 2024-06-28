@@ -40,6 +40,9 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
 
+import { UnifiedThemeProvider } from '@backstage/theme';
+import { myTheme } from './theme/myTheme';
+
 const githubProvider: SignInProviderConfig = {
   id: 'github-auth-provider',
   title: 'GitHub',
@@ -50,6 +53,14 @@ const githubProvider: SignInProviderConfig = {
 
 const app = createApp({
   apis,
+  themes: [{
+    id: 'my-theme',
+    title: 'My Custom Theme',
+    variant: 'light',
+    Provider: ({ children }) => (
+      <UnifiedThemeProvider theme={myTheme} children={children} />
+    ),
+  }],
   
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
