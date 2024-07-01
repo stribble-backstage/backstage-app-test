@@ -4,75 +4,75 @@ import {
     genPageTheme,
     palettes,
     shapes,
-  } from '@backstage/theme';
-  
-  export const myTheme = createUnifiedTheme({
+} from '@backstage/theme';
+
+export const myTheme = createUnifiedTheme({
     ...createBaseThemeOptions({
-      palette: {
-        ...palettes.light,
-        primary: {
-          main: '#FFB74D', // softer orange
+        palette: {
+            ...palettes.light,
+            primary: {
+                main: '#2E3A87', // adjusted dark blue with more contrast
+            },
+            secondary: {
+                main: '#4D5568', // adjusted grayish blue with more contrast
+            },
+            error: {
+                main: '#B33030', // adjusted red with more contrast
+            },
+            warning: {
+                main: '#B57B15', // adjusted orange with more contrast
+            },
+            info: {
+                main: '#2E5BA8', // adjusted blue with more contrast
+            },
+            success: {
+                main: '#4A7032', // adjusted green with more contrast
+            },
+            background: {
+                default: '#D4D5D9', // slightly darker light gray
+                paper: '#D4D5D9', // slightly darker light gray
+            },
+            banner: {
+                info: '#2E5BA8', // adjusted blue with more contrast
+                error: '#B33030', // adjusted red with more contrast
+                text: '#2E3A87', // adjusted dark blue with more contrast
+                link: '#4D5568', // adjusted grayish blue with more contrast
+            },
+            errorBackground: '#B33030', // adjusted red with more contrast
+            warningBackground: '#B57B15', // adjusted orange with more contrast
+            infoBackground: '#2E3A87', // adjusted dark blue with more contrast
+            navigation: {
+                background: '#2E3A87', // adjusted dark blue with more contrast
+                indicator: '#B57B15', // adjusted orange with more contrast
+                color: '#E5E6EA', // adjusted light gray with more contrast
+                selectedColor: '#FFFFFF', // white
+            },
         },
-        secondary: {
-          main: '#AED581', // light green
-        },
-        error: {
-          main: '#EF9A9A', // soft red
-        },
-        warning: {
-          main: '#FFCC80', // soft orange
-        },
-        info: {
-          main: '#81D4FA', // soft blue
-        },
-        success: {
-          main: '#A5D6A7', // soft green
-        },
-        background: {
-          default: '#FFFDE7', // very light yellow
-          paper: '#FFFDE7', // very light yellow
-        },
-        banner: {
-          info: '#81D4FA', // soft blue
-          error: '#EF9A9A', // soft red
-          text: '#FFB74D', // softer orange
-          link: '#AED581', // light green
-        },
-        errorBackground: '#EF9A9A', // soft red
-        warningBackground: '#FFCC80', // soft orange
-        infoBackground: '#81D4FA', // soft blue
-        navigation: {
-          background: '#FFB74D', // softer orange
-          indicator: '#AED581', // light green
-          color: '#000', // very light yellow
-          selectedColor: '#000', // white
-        },
-      },
     }),
     defaultPageTheme: 'home',
-    fontFamily: 'Georgia, Merriweather, serif',
+    fontFamily: 'Georgia, serif',
     /* below drives the header colors */
     pageTheme: {
-      home: genPageTheme({ colors: ['#EF9A9A', '#FFB74D'], shape: shapes.wave }),
-      documentation: genPageTheme({
-        colors: ['#EF9A9A', '#FFB74D'],
-        shape: shapes.round,
-      }),
-      tool: genPageTheme({ colors: ['#EF9A9A', '#FFB74D'], shape: shapes.wave2 }),
-      service: genPageTheme({
-        colors: ['#EF9A9A', '#FFB74D'],
-        shape: shapes.wave,
-      }),
-      website: genPageTheme({
-        colors: ['#EF9A9A', '#FFB74D'],
-        shape: shapes.round,
-      }),
-      library: genPageTheme({
-        colors: ['#EF9A9A', '#FFB74D'],
-        shape: shapes.wave2,
-      }),
-      other: genPageTheme({ colors: ['#EF9A9A', '#FFB74D'], shape: shapes.round }),
-      app: genPageTheme({ colors: ['#EF9A9A', '#FFB74D'], shape: shapes.wave }),
-      apis: genPageTheme({ colors: ['#EF9A9A', '#FFB74D'], shape: shapes.wave2 }),
+        home: genPageTheme({ colors: ['#B33030', '#2E3A87'], shape: shapes.wave }),
+        documentation: genPageTheme({
+            colors: ['#B33030', '#2E3A87'],
+            shape: shapes.wave2,
+        }),
+        tool: genPageTheme({ colors: ['#B33030', '#2E3A87'], shape: shapes.round }),
+        service: genPageTheme({
+            colors: ['#B33030', '#2E3A87'],
+            shape: shapes.wave,
+        }),
+        website: genPageTheme({
+            colors: ['#B33030', '#2E3A87'],
+            shape: shapes.wave,
+        }),
+        library: genPageTheme({
+            colors: ['#B33030', '#2E3A87'],
+            shape: shapes.wave,
+        }),
+        other: genPageTheme({ colors: ['#B33030', '#2E3A87'], shape: shapes.wave }),
+        app: genPageTheme({ colors: ['#B33030', '#2E3A87'], shape: shapes.wave }),
+        apis: genPageTheme({ colors: ['#B33030', '#2E3A87'], shape: shapes.wave }),
     },
-  });
+});
